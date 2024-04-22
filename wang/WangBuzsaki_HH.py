@@ -2,6 +2,7 @@
 # it is still not giving results for GABAa from projection class 
 # it is still not working for pre and post .. it only works for same neurons ( either pre pre or post post not for pre post or post pre) 
 # more is synaptic conductance sooner it achieves the synchronisation pattern #( increase from 0.1 to 0.8) 
+# current and reversal potential does not matter much ( it also synchronises for E=0 and E = -75 inhi and exci both) 
 
 import brainpy as bp
 import numpy as np
