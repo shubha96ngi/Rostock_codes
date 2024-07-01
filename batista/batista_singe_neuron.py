@@ -224,8 +224,29 @@ class BaseAMPASyn(bp.SynConn):
        
         # dg = -g + ((1-g)*5)/(1+bm.exp(-(self.pre.V+3)/8))  # according to paper 
         return dg
-    
 
+
+#### both are not working exp synapse and AMPA synapse 
+    
+class ExpAll2All(BaseAMPASyn):
+    def __init__(self, *args, **kwargs):
+        super(ExpAll2All, self).__init__(*args, **kwargs)
+
+        # synapse gating variable
+        # -------
+        # The synapse variable has the shape of the post-synaptic group
+        self.g = bm.Variable(bm.zeros(self.post.num))
+
+    def update(self, tdi, x=None):
+        _t, _dt = tdi.t, tdi.dt
+        delayed_spike = self.pre_spike(self.delay_step)
+        self.pre_spike.update(self.pre.spike)
+        # TT =1 
+        self.spike_arrival_time.value = bm.where(delayed_spike, _t, self.spike_arrival_time)
+        TT = ((_t - self.spike_arrival_time) < self.T_duration) * self.T
+        self.g.value = self.integral(self.g, _t,TT, dt=_dt)
+        self.g += delayed_spike.sum()  # NOTE: HERE is the difference
+        self.post.input += self.g_max * self.g * (self.E - self.post.V)
 
 class AMPAAll2All(BaseAMPASyn):
     def __init__(self, *args, **kwargs):
@@ -272,4 +293,6 @@ def show_syn_model(model):
     bp.visualize.raster_plot(runner.mon.ts, runner.mon['pre.spike'], show=True)
 
 
-show_syn_model(AMPAAll2All)
+show_syn_model(AMPAAll2All) 
+show_syn_model(ExpAll2All) 
+
