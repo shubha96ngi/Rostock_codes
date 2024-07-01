@@ -81,7 +81,9 @@ def HH(V,m,n,h,s,I_DBS):
     m = m + dt*((alpha_m(V)*(1-m))-beta_m(V)*m)
     n = n + dt*((alpha_n(V)*(1-n))-beta_n(V)*n)
     h = h + dt*((alpha_h(V)*(1-h))-beta_h(V)*h)
-    s =  s + dt* (-s + ((1-s)*5)/(1+np.exp(-(V+3)/8)))
+    #s =  s + dt* (-s + ((1-s)*5)/(1+np.exp(-(V+3)/8)))
+    alpha = 0.98 ; beta = 0.18 
+    s =  s + dt* 0.98 *(1 - s) - 0.18 * s
     return V,m,n,h,s,Isyn 
 
 s_pre = np.zeros((5000,100))
