@@ -18,5 +18,8 @@ class HH(bp.dyn.CondNeuGroup):
 # it has gaba synapse and ampa synapse with E= 20 and E= -75
 #https://github.com/brainpy/BrainPy/blob/5e75f78ad27a8c761029779f3f76d262bf54ab0f/brainpy/_src/tests/test_access_methods.py#L9
 
+# similar model paper 
+# http://staff.ustc.edu.cn/~hzhlj/paper/44.pdf
+
 
 
