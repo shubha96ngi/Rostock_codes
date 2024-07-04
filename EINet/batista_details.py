@@ -21,5 +21,10 @@ class HH(bp.dyn.CondNeuGroup):
 # similar model paper 
 # http://staff.ustc.edu.cn/~hzhlj/paper/44.pdf
 
+# following citation of paper (Exci-Inhi Network model) 
+#https://www.researchgate.net/publication/362417564_Synchronization_and_oscillation_behaviors_of_excitatory_and_inhibitory_populations_with_spike-timing-dependent_plasticity
+#, I found the link
+#https://github.com/JonathanAMichaels/hebbRNN
+
 
 
