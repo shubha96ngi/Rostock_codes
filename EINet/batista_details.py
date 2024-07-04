@@ -1,3 +1,6 @@
+#https://colab.ws/articles/10.1016%2Fj.conb.2023.102707 
+# a good website for reading important paper related to HH model 
+
 # some useful links
 #https://brainpy.readthedocs.io/en/latest/apis/auto/brainpy-changelog.html#id36
 '''
