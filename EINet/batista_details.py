@@ -1,3 +1,8 @@
+#from the paper https://www.researchgate.net/publication/340162380_Effect_of_interpopulation_spike-timing-dependent_plasticity_on_synchronized_rhythms_in_neuronal_networks_with_inhibitory_and_excitatory_populations
+#it is clear that we will use  inhibitory synapse (GABA, Vsyn = -80) and excitatory synapse (AMPA, Vsyn= 0)
+# some parameters are also provided for this please do check 
+
+
 #https://colab.ws/articles/10.1016%2Fj.conb.2023.102707 
 # a good website for reading important paper related to HH model 
 
