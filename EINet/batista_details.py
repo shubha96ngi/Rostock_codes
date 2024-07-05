@@ -2,6 +2,8 @@
 #it is clear that we will use  inhibitory synapse (GABA, Vsyn = -80) and excitatory synapse (AMPA, Vsyn= 0)
 # some parameters are also provided for this please do check 
 
+# parameters are from paper https://www.researchgate.net/publication/354251409_The_Hodgkin-Huxley_neuron_model_for_motion_detection_in_image_sequences
+
 
 #https://colab.ws/articles/10.1016%2Fj.conb.2023.102707 
 # a good website for reading important paper related to HH model 
