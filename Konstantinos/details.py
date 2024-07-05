@@ -5,3 +5,7 @@
 # it is not easy to set up these ion current for sodium, potassium, and M current 
 # somehow to use sodiumfixed, potassium fixed, ..dont know about M current 
 # not sure just writing definition will work 
+
+
+# _IKK2_pq_ss(PotassiumChannel)
+# for slowly inactivating potassium channel D current 
