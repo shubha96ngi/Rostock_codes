@@ -1,3 +1,6 @@
+import brainpy as bp 
+#bp.dyn.IKNI_Ya1989 from 
+#https://github.com/brainpy/BrainPy/blob/5e75f78ad27a8c761029779f3f76d262bf54ab0f/brainpy/_src/dyn/channels/potassium_compatible.py
 class IKdr(bp.dyn.IKNI_Ya1989):
     def __init__(self, size):
         super().__init__(size,g_max=225, E=-90.) 
