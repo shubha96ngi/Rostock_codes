@@ -38,10 +38,6 @@ class IM(bp.dyn.IonChannel):
 class HH_MSN(bp.dyn.CondNeuGroupLTC):
     def __init__(self, size):
         super().__init__(size) 
-    #     self.K = bp.dyn.SodiumFixed(size, E = 50)
-    #     self.INa = bp.dyn.INa_Ba2002(size, g_max = 100., V_sh=-67.,phi=1.) # done 
-    #     self.K = bp.dyn.PotassiumFixed(size, E= -100.)
-    #     self.IK = bp.dyn.IKDR_Ba2002v2(size, g_max = 80., V_sh=-67., phi=1.) # done
         self.IL = bp.channels.IL(size, g_max=0.1, E=-67.) # done 
         self.INa = bp.channels.INa_Ba2002(size, g_max = 100.,E=50., V_sh=-67.,phi=1.) # done 
         self.IK = bp.channels.IKDR_Ba2002v2(size, g_max = 80.,E=-100., V_sh=-67., phi=1.) # done
@@ -74,5 +70,5 @@ class HH_FSI(bp.dyn.CondNeuGroupLTC):
         self.IKdr.f_p_tau =  (0.087 + 11.4 / (1. + bm.exp((self.V +14.6) / 8.6)))*(0.087 + 11.4 / (1. + bm.exp(-(self.V -1.3) / 18.7)))
         self.IKdr.current = self.IKdr.g_max * self.IKdr.p **2 * (self.IKdr.E - self.V)
 
-# now lets define connections for FSI, MSN 
+# now lets define connections for FSI, MSN sparse network ( pre2syn and post2syn_event_sum) to make if fast 
         
