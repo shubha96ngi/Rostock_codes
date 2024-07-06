@@ -75,6 +75,16 @@ or do I need to write like this following first example
     return 1. 
     #return self.g_max * self.p * (E - V)
 
+# grouping class 
+# this will do 
+class HH_FSI(bp.dyn.CondNeuGroup):
+  def __init__(self, size):
+    super().__init__(size)
+    self.IK = IK1(size) # E=-77., g_max=36.)
+
+or this 
+        
+
 class HH_FSI(bp.dyn.CondNeuGroupLTC):
     def __init__(self, size, gKL=0.01, V_initializer=bp.init.OneInit(-65.)):
         super().__init__(size, A=2.9e-4, V_initializer=V_initializer, V_th=20.)
@@ -82,6 +92,7 @@ class HH_FSI(bp.dyn.CondNeuGroupLTC):
         # how to use add_elem  for IK1 ?
         # self.K.add_elem(bp.dyn.IKDR_Ba2002v2(size, V_sh=-30., phi=0.25))
         self.K.add_elem(IK1)  ??
-        
+
+
         
         
