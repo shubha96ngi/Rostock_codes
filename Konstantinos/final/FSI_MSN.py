@@ -73,5 +73,6 @@ class HH_FSI(bp.dyn.CondNeuGroupLTC):
         self.IKdr.f_p_inf = 1. / (1. + bm.exp(-(self.V +12.4) / 6.8))
         self.IKdr.f_p_tau =  (0.087 + 11.4 / (1. + bm.exp((self.V +14.6) / 8.6)))*(0.087 + 11.4 / (1. + bm.exp(-(self.V -1.3) / 18.7)))
         self.IKdr.current = self.IKdr.g_max * self.IKdr.p **2 * (self.IKdr.E - self.V)
-      
+
+# now lets define connections for FSI, MSN 
         
