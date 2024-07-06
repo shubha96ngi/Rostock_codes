@@ -15,10 +15,11 @@ class IKdr(bp.dyn.IKNI_Ya1989):
 
 class HH_FSI(bp.dyn.CondNeuGroupLTC):
     def __init__(self, size):
-        super().__init__(size) 
+        super().__init__(size,g_max,E) 
       
         self.IKdr = bp.channels.IKNI_Ya1989(size,g_max=112.5, E=50.)#IKdr(size)  # done I guess # M current channel 
         self.IKdr.f_p_inf = 1. / (1. + bm.exp(-(V +58.3) / 6.7))
         self.IKdr.f_p_tau = 0.5 + 14. / (1. + bm.exp((V + 60) / 12))
+        # but then how it will access self.p ?
         self.IKdr.current = self.g_max * self.p **3 *  1. / (1. + bm.exp(-(V +24) / 11.5))* (self.E - V)
         
