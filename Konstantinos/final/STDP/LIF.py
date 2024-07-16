@@ -1,4 +1,5 @@
 # trying to matxh STDP code with neuromatch academy example 
+# generated spike train same as what they are generating poisson_generator for presynaptic neuron
 
 import brainpy as bp
 import brainpy.math as bm
