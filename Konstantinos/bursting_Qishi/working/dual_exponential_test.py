@@ -8,6 +8,8 @@
 #gmax/(tau_decay-tau_rise)
 
 # this decay - rise term is giving it turned peak ( gaussian type ) rather than sharp like nail
+
+# example https://github.com/brainpy/BrainPy/blob/5e75f78ad27a8c761029779f3f76d262bf54ab0f/brainpy/_src/dyn/synapses/tests/test_abstract_models.py#L43
 #################################################################
 # Method 1 
 import brainpy as bp
@@ -226,4 +228,32 @@ fig.add_subplot(gs[0, 2])
 plt.plot(ts, potentials)
 plt.title('Post V')
 plt.show()
+
+########################################################################
+# Method4
+import matplotlib.pyplot as plt
+show = True
+import brainpy as bp
+import brainpy.math as bm
+class Net(bp.DynSysGroup):
+    def __init__(self, tau_r, tau_d, n_spk):
+        super().__init__()
+
+        self.inp = bp.dyn.SpikeTimeGroup(1, bm.zeros(n_spk, dtype=int), bm.linspace(2., 100., n_spk))
+        self.syn = bp.dyn.DualExponV2(1, tau_rise=tau_r, tau_decay=tau_d)
+
+    def update(self):
+        return self.syn(self.inp())
+
+
+# for tau_r, tau_d in [(1., 10.), (5., 50.), (10., 100.)]:
+#     for n_spk in [1, 10, 100]:
+net = Net(1., 10., 10)
+indices = bm.as_numpy(bm.arange(1000))
+gs = bm.for_loop(net.step_run, indices, progress_bar=True)
+
+bp.visualize.line_plot(indices * bm.get_dt(), gs, legend='g', show=show)
+
+plt.close('all')
+
 
