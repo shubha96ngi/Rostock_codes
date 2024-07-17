@@ -99,6 +99,8 @@ class DualExponential(bp.synapses.TwoEndConn):
 
     # 根据连接模式计算各个突触后神经元收到的信号强度
     # at that time point it will sum up all spike from pre neuorns ( this will be collective spikes)
+    # is using 7 pre and 5 post and all 7 are firing at same time 
+    # it will give 5 columns of 7 
     post_sp = bm.pre2post_event_sum(delayed_pre_spike, self.pre2post, self.post.num, self.g_max)
     # g和h的更新包括常规积分和突触前脉冲带来的跃变
     self.h.value = self.int_h(self.h, tdi.t, tdi.dt) + post_sp
