@@ -3,6 +3,9 @@
 # Note: If want to avold the factor of A ( that is some expression of tau_decay and rise just use default mode , which is None
 # can put some value for A
 
+#Note: 
+#while checking A ka value display nahi ho rahi thi so we can define denominator by using divide by g_max such as 
+#gmax/(tau_decay-tau_rise)
 #################################################################
 # Method 1 
 import brainpy as bp
