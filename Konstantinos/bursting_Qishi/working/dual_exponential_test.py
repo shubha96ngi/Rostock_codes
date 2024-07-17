@@ -6,6 +6,8 @@
 #Note: 
 #while checking A ka value display nahi ho rahi thi so we can define denominator by using divide by g_max such as 
 #gmax/(tau_decay-tau_rise)
+
+# this decay - rise term is giving it turned peak 
 #################################################################
 # Method 1 
 import brainpy as bp
