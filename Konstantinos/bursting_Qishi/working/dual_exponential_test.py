@@ -240,7 +240,9 @@ class Net(bp.DynSysGroup):
         super().__init__()
 
         self.inp = bp.dyn.SpikeTimeGroup(1, bm.zeros(n_spk, dtype=int), bm.linspace(2., 100., n_spk))
-        self.syn = bp.dyn.DualExponV2(1, tau_rise=tau_r, tau_decay=tau_d)
+        #self.syn = bp.dyn.DualExponV2(1, tau_rise=tau_r, tau_decay=tau_d)
+        self.syn = bp.dyn.DualExpon(1, tau_rise=tau_r, tau_decay=tau_d)
+
 
     def update(self):
         return self.syn(self.inp())
