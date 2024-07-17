@@ -1,6 +1,7 @@
 # testing 3 variations of Dualexponential model 
 # all are giving same result 
 # Note: If want to avold the factor of A ( that is some expression of tau_decay and rise just use default mode , which is None
+# can put some value for A
 
 #################################################################
 # Method 1 
